@@ -1,0 +1,12 @@
+name: First Workflow
+#Triggers that display that event
+  #Dispatch is to manually display this workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: echo "Hello world!"
+      - name: Print Goodbye
+        run: echo "Done - bye!" 
