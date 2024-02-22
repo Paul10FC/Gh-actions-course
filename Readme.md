@@ -1,1 +1,1 @@
-This is a Github project for the course that I taking called Github Actions Course
+This is a Github project for the course that I'm taking called Github Actions Course
