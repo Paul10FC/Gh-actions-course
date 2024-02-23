@@ -1,0 +1,12 @@
+name: detect_problem
+on:
+  issues:
+    types: opened
+jobs:
+   show_problem:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        run: actions/checkout@v4
+      - name: print problem
+        run: echo " A Issue has been created, the issue name is ${{ github.event.issue.title }} "    
