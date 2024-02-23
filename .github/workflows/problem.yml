@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get code
-        uses: actions/checkout@v4  
+        uses: actions/checkout@v4
+      - name: run lint
+        run: npm run lint    
   run_lint:
     needs: preparation
     runs-on: ubuntu-latest
