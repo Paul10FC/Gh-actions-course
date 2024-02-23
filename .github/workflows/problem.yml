@@ -1,0 +1,26 @@
+name: Deploy
+on: push
+jobs:
+  preparation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        run: actions/checkout@v4  
+  run_lint:
+    needs: preparation
+    runs-on: ubuntu-latest
+    steps:
+      - name: run lint action
+        run: npm lint
+  run_test:
+    needs: [run_lint, preparation]
+    runs-on: ubuntu-latest
+    steps:
+      - name: run test action
+        run: npm test
+  run_build:
+    needs: [run_lint, run_test, preparation]
+    runs-on: ubuntu-latest
+    steps:
+      - name: run build action
+        run: npm build
