@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run lint action
-        run: npm lint
+        run: npm run lint
   run_test:
     needs: [run_lint, preparation]
     runs-on: ubuntu-latest
@@ -23,4 +23,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run build action
-        run: npm build
+        run: npm run build
