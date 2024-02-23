@@ -1,4 +1,4 @@
-name: Test_Java_App
+name: test
 on: [push, workflow_dispatch]
 jobs:
   test:
@@ -6,22 +6,13 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: download Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'oracle'
-          java-version: '17'
       - name: run_java_hello_world
         run: java Main.java
   deployment:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: download java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'oracle'
-          java-version: '17'
       - name: deploy
-        run: echo "Deploying..."
+        run: echo "Deploying after test..."
